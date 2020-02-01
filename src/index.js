@@ -12,4 +12,7 @@ app.get('/',function(req,res) {
   </html>`)
 })
 
-const server = app.listen(7005)
+const PORT = 7005
+const server = app.listen(7005,() => {
+  console.log('server start at '+ PORT);
+})
