@@ -1,8 +1,9 @@
-const express = require('express')
-const app = express()
-const {Home} = require('./container/Home')
+// const express = require('express')
+import express from "express";
+const app = express();
+import Home from "./container/Home";
 
-app.get('/',function(req,res) {
+app.get("/", function(req, res) {
   res.send(`<html>
     <head>
       <title>ssr</title>
@@ -10,10 +11,10 @@ app.get('/',function(req,res) {
         <h2>hello ssr</h2>
       </body>
     </head>
-  </html>`)
-})
+  </html>`);
+});
 
-const PORT = 7005
-const server = app.listen(7005,() => {
-  console.log('server start at '+ PORT);
-})
+const PORT = 7005;
+const server = app.listen(7005, () => {
+  console.log("server start at " + PORT);
+});

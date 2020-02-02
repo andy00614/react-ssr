@@ -90,10 +90,11 @@
 /*!*************************************!*\
   !*** ./src/container/Home/index.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var React = __webpack_require__(/*! react */ \"react\");\n\nvar Home = function Home() {\n  return React.createElement(\"div\", null, \"Home\");\n};\n\nmodule.exports = {\n  Home: Home\n};\n\n//# sourceURL=webpack:///./src/container/Home/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar React = __webpack_require__(/*! react */ \"react\");\n\nvar Home = function Home() {\n  return React.createElement(\"div\", null, \"Home\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./src/container/Home/index.js?");
 
 /***/ }),
 
@@ -101,10 +102,11 @@ eval("var React = __webpack_require__(/*! react */ \"react\");\n\nvar Home = fun
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var express = __webpack_require__(/*! express */ \"express\");\n\nvar app = express();\n\nvar _require = __webpack_require__(/*! ./container/Home */ \"./src/container/Home/index.js\"),\n    Home = _require.Home;\n\napp.get('/', function (req, res) {\n  res.send(\"<html>\\n    <head>\\n      <title>ssr</title>\\n      <body>\\n        <h2>hello ssr</h2>\\n      </body>\\n    </head>\\n  </html>\");\n});\nvar PORT = 7005;\nvar server = app.listen(7005, function () {\n  console.log('server start at ' + PORT);\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _container_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./container/Home */ \"./src/container/Home/index.js\");\n// const express = require('express')\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\n\napp.get(\"/\", function (req, res) {\n  res.send(\"<html>\\n    <head>\\n      <title>ssr</title>\\n      <body>\\n        <h2>hello ssr</h2>\\n      </body>\\n    </head>\\n  </html>\");\n});\nvar PORT = 7005;\nvar server = app.listen(7005, function () {\n  console.log(\"server start at \" + PORT);\n});\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

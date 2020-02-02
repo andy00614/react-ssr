@@ -4,6 +4,4 @@ const Home = () => {
   return <div>Home</div>
 }
 
-module.exports = {
-  Home
-}
+export default Home
