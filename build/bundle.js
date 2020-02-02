@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar React = __webpack_require__(/*! react */ \"react\");\n\nvar Home = function Home() {\n  return React.createElement(\"div\", null, \"ssr refresh-npm run all!\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./src/container/Home/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar React = __webpack_require__(/*! react */ \"react\");\n\nvar Home = function Home() {\n  return React.createElement(\"div\", null, \"ssr refresh-npm run all!!\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./src/container/Home/index.js?");
 
 /***/ }),
 
