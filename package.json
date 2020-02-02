@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch build --exec node \"./build/bundle.js\"",
-    "build": "webpack --config webpack.server.js --watch"
+    "dev": "npm-run-all --parallel dev:**",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
+    "dev:build": "webpack --config webpack.server.js --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "@babel/polyfill": "^7.8.3",
     "babel-loader": "^8.0.6",
     "express": "^4.17.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "webpack": "^4.41.5",
