@@ -5,5 +5,5 @@ const Home = () => {
 }
 
 module.exports = {
-  default: Home
+  Home
 }
