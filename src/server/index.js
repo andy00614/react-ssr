@@ -1,8 +1,17 @@
 import express from "express";
 import { renderToString } from "react-dom/server";
 import React from "react";
-import { StaticRouter } from 'react-router-dom'
-import Routes from '../../Routes'
+import { StaticRouter } from "react-router-dom";
+import Routes from "../../Routes";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
+const reducer = (state = { name: "andy" }, action) => {
+  return state;
+};
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 const app = express();
 
@@ -10,10 +19,12 @@ app.use(express.static("public"));
 
 app.get("*", function(req, res) {
   const content = renderToString(
-    <StaticRouter location={req.path} context={{}}>
-      {Routes}
-    </StaticRouter>
-  )
+    <Provider store={store}>
+      <StaticRouter location={req.path} context={{}}>
+        {Routes}
+      </StaticRouter>
+    </Provider>
+  );
   res.send(`<html>
     <head>
       <title>ssr</title>
