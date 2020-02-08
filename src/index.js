@@ -14,9 +14,7 @@ app.get("/", function(req, res) {
       <title>ssr</title>
       <body>
         <h2>hello ssr</h2>
-        <div id="root">
-          ${dom}
-        </div>
+        <div id="root">${dom}</div>
         <script src="/index.js"></script>
       </body>
     </head>
