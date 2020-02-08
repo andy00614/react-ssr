@@ -1,20 +1,22 @@
 import express from "express";
-import { renderToString } from 'react-dom/server'
-import React from 'react'
+import { renderToString } from "react-dom/server";
+import React from "react";
 import Home from "./container/Home";
 
 const app = express();
 
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 app.get("/", function(req, res) {
-  const dom = renderToString(<Home />)
+  const dom = renderToString(<Home />);
   res.send(`<html>
     <head>
       <title>ssr</title>
       <body>
         <h2>hello ssr</h2>
-        ${dom}
+        <div id="root">
+          ${dom}
+        </div>
         <script src="/index.js"></script>
       </body>
     </head>
