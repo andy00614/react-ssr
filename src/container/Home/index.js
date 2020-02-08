@@ -1,9 +1,10 @@
-const React = require('react')
+import React from 'react'
+import Header from "../../components/Header"
 
 const Home = () => {
   return <div>
-    <h2>同构-test</h2>
-    <button onClick={() => {alert('click生效了吗？')}}>click</button>
+    <Header />
+    <div>Home</div>
   </div>
 }
 
