@@ -12,6 +12,9 @@ const reducer = (state = { name: "andy" }, action) => {
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
+// todo:在这里拿到store的数据
+// 根据不同路径加载不同的数据
+// 只做静态加载，动态交互还是需要客户端渲染
 
 export function render(req) {
   const content = renderToString(

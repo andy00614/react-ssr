@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 import { getList } from './store/action'
 class Home extends React.Component {
-  constructor(props) {
+  constructor(prop s) {
     super(props);
     this.state={
       lists:[]
@@ -25,6 +25,11 @@ class Home extends React.Component {
       </div>
     );
   }
+}
+
+// step1
+Home.loadData = () => {
+  // 负责服务端渲染前把数据加载好
 }
 const mapStateToProps = ({home}) => ({
   lists: home.lists
