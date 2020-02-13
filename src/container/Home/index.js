@@ -4,13 +4,10 @@ import { getList } from './store/action'
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      lists:[]
-    }
   }
-  componentDidMount() {
-    this.props.getList()
-  }
+  // componentDidMount() {
+  //   this.props.getList()
+  // }
 
   render() {
     return ( 
@@ -28,8 +25,9 @@ class Home extends React.Component {
 }
 
 // step1
-Home.loadData = () => {
+Home.loadData = (store) => {
   // 负责服务端渲染前把数据加载好
+  return store.dispatch(getList())
 }
 const mapStateToProps = ({home}) => ({
   lists: home.lists

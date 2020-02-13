@@ -5,20 +5,20 @@ export default [
   {
     path: "/",
     component: Home,
-    loadData: () => Home.loadData,
+    loadData: (store) => Home.loadData(store),
     key: "home",
-    routes: [
-      {
-        path: "/ttt",
-        component: Login,
-        key: "home/login"
-      }
-    ]
+    // routes: [
+    //   {
+    //     path: "/ttt",
+    //     component: Login,
+    //     key: "home/login"
+    //   }
+    // ]
   },
   {
     path: "/login",
     component: Login,
-    exact: true,
+    // exact: true,
     key: "login"
   }
 ];
