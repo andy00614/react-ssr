@@ -1,19 +1,19 @@
-import express from "express";
 import { renderToString } from "react-dom/server";
 import React from "react";
 import { StaticRouter } from "react-router-dom";
 import Routes from "../../Routes";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import getStore from '../../store'
+import thunk from "redux-thunk";
+
+const reducer = (state = { name: "andy" }, action) => {
+  return state;
+};
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 
-const store = getStore()
-
-const app = express();
-
-app.use(express.static("public"));
-
-app.get("*", function(req, res) {
+export function render(req) {
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.path} context={{}}>
@@ -21,8 +21,8 @@ app.get("*", function(req, res) {
       </StaticRouter>
     </Provider>
   );
-  res.send(`<html>
-    <head>
+  return `<html>
+  <head>
       <title>ssr</title>
       <body>
         <h2>hello ssr</h2>
@@ -30,10 +30,5 @@ app.get("*", function(req, res) {
         <script src="/index.js"></script>
       </body>
     </head>
-  </html>`);
-});
-
-const PORT = 7005;
-const server = app.listen(7005, () => {
-  console.log("server start at " + PORT);
-});
+  </html>`;
+}
