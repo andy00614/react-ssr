@@ -1,21 +1,30 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import Home from './src/container/Home'
-import Login from './src/container/Login'
+import React from "react";
+import { Route } from "react-router-dom";
+import Home from "./src/container/Home";
+import Login from "./src/container/Login";
 
 export default [
   {
-    path: '/',
+    path: "/",
     component: Home,
     loadData: () => Home.loadData,
-    key:'home'
-  },{
-    path: '/login',
+    key: "home",
+    // exact:true ,
+    routes: [
+      {
+        path: "/ttt",
+        component: Login,
+        key: "home/login"
+      }
+    ]
+  },
+  {
+    path: "/login",
     component: Login,
     exact: true,
-    key:'login'
+    key: "login"
   }
-]
+];
 
 // export default (
 //   <React.Fragment>
