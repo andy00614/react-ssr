@@ -4,7 +4,7 @@ import { StaticRouter, Route } from "react-router-dom";
 import { matchRoutes } from "react-router-config";
 import routes from "../Routes";
 import { Provider } from "react-redux";
-import getStore from "../store";
+import {getStore} from "../store";
 
 const store = getStore();
 
@@ -22,7 +22,6 @@ export function render(req, res) {
   });
 
   Promise.all(promises).then(_ => {
-    console.log(store.getState());
     const content = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.path} context={{}}>
@@ -39,6 +38,9 @@ export function render(req, res) {
         <body>
           <h2>hello ssr</h2>
           <div id="root">${content}</div>
+          <script>
+            window.ctx = ${JSON.stringify(store.getState())}
+          </script>
           <script src="/index.js"></script>
         </body>
       </head>
