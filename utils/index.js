@@ -1,16 +1,11 @@
 import { renderToString } from "react-dom/server";
 import React from "react";
-import { StaticRouter } from "react-router-dom";
-import Routes from "../../Routes";
-import { createStore, applyMiddleware } from "redux";
+import { StaticRouter,Route } from "react-router-dom";
+import routes from "../Routes";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
+import getStore from '../store'
 
-const reducer = (state = { name: "andy" }, action) => {
-  return state;
-};
-
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = getStore();
 
 // todo:在这里拿到store的数据
 // 根据不同路径加载不同的数据
@@ -20,7 +15,9 @@ export function render(req) {
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.path} context={{}}>
-        {Routes}
+        {
+          routes.map(route => <Route {...route}/>)
+        }
       </StaticRouter>
     </Provider>
   );

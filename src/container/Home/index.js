@@ -2,19 +2,19 @@ import React from "react";
 import { connect } from 'react-redux'
 import { getList } from './store/action'
 class Home extends React.Component {
-  constructor(prop s) {
+  constructor(props) {
     super(props);
     this.state={
       lists:[]
     }
   }
-  componentWillMount() {
+  componentDidMount() {
     this.props.getList()
   }
 
   render() {
     return ( 
-      <div>
+      <React.Fragment>
         <h2>xuanran1</h2>
         {this.props.lists.map(item => (
           <div key={item.title}>
@@ -22,7 +22,7 @@ class Home extends React.Component {
             <div>{item.name}</div>
           </div>
         ))}
-      </div>
+      </React.Fragment>
     );
   }
 }

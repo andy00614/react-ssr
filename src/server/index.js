@@ -1,36 +1,14 @@
 import express from "express";
-import { renderToString } from "react-dom/server";
-import React from "react";
-import { StaticRouter } from "react-router-dom";
-import Routes from "../../Routes";
-import { Provider } from "react-redux";
-import getStore from '../../store'
+import { render } from '../../utils'
 
-
-const store = getStore()
 
 const app = express();
 
 app.use(express.static("public"));
 
 app.get("*", function(req, res) {
-  const content = renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.path} context={{}}>
-        {Routes}
-      </StaticRouter>
-    </Provider>
-  );
-  res.send(`<html>
-    <head>
-      <title>ssr</title>
-      <body>
-        <h2>hello ssr</h2>
-        <div id="root">${content}</div>
-        <script src="/index.js"></script>
-      </body>
-    </head>
-  </html>`);
+  const content = render(req)
+  res.send(content);
 });
 
 const PORT = 7005;
