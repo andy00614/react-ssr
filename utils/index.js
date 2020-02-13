@@ -14,15 +14,6 @@ export function render(req) {
   // 只做静态加载，动态交互还是需要客户端渲染
 
   let matchedRouter = [];
-  // use `some` to imitate `<Switch>` behavior of selecting only
-  // the first to match
-  // routes.some(route => {
-  //   // use `matchPath` here
-  //   const match = matchPath(req.path, route);
-  //   if (match) {
-  //     matchRouter.push(route);
-  //   }
-  // });
 
   matchedRouter = matchRoutes (routes,req.path)
 
