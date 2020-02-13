@@ -5,9 +5,11 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
   }
-  // componentDidMount() {
-  //   this.props.getList()
-  // }
+  componentDidMount() {
+    if(this.props.lists.length === 0) {
+      this.props.getList()
+    }
+  }
 
   render() {
     return ( 
